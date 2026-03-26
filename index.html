@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -69,16 +69,16 @@
 
   <div class="card" id="app">
     <div class="heart">❤️</div>
-    <h1>I'm Really Sorry Tanviiii </h1>
+    <h1>I'm Really Sorry Tanviiii</h1>
     <p>
-      Whatever happened it happened it heat of moment we both couldve handled it better .<br>
-      lets not fight over this again ever.
+      Whatever happened, it happened in the heat of the moment.<br>
+      We both could've handled it better.
       <br><br>
       Will you forgive me? ❤️
     </p>
 
     <button class="btn yes" onclick="yesPage()">Yes 💖</button>
-    <button class="btn no" onclick="noPage()">No 😅</button>
+    <button class="btn no" onclick="noPage1()">No 😅</button>
   </div>
 
   <!-- Background Music -->
@@ -93,22 +93,32 @@
       app.innerHTML = `
         <div class="heart">💖</div>
         <h1>Thank You ❤️</h1>
-        <p>I promise it wont happen again , always.</p>
-        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" width="200" />
+        <p>I promise it won't happen again, always.</p>
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="200" />
       `;
     }
 
-    function noPage() {
+    function noPage1() {
       app.innerHTML = `
         <h1>Are you sure? 😢</h1>
-        <p>Please na babyyyyyy .</p>
-        <img src="https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif" width="200" />
+        <p>Please na babyyyyyy...</p>
+        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="200" />
         <br><br>
         <button class="btn yes" onclick="yesPage()">Okay fine... Yes ❤️</button>
+        <button class="btn no" onclick="noPage2()">Still No 😭</button>
       `;
     }
 
-    // play music after interaction (browser rule)
+    function noPage2() {
+      app.innerHTML = `
+        <h1>Last chance... 😔</h1>
+        <p>I really don't want to lose you.</p>
+        <img src="https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif" width="200" />
+        <br><br>
+        <button class="btn yes" onclick="yesPage()">Okay... Yes ❤️</button>
+      `;
+    }
+
     document.body.addEventListener('click', () => {
       document.getElementById('bgMusic').play();
     });
