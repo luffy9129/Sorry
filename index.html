@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I'm Sorry ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: #333;
+      overflow: hidden;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 500px;
+      position: relative;
+    }
+
+    h1 { color: #ff4b5c; }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .yes {
+      background-color: #ff4b5c;
+      color: white;
+    }
+
+    .yes:hover { background-color: #ff1e38; }
+
+    .no {
+      background-color: #555;
+      color: white;
+      position: absolute;
+    }
+
+    .heart {
+      font-size: 50px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="box">
+    <div class="heart">❤️</div>
+    <h1>I'm Really Sorry</h1>
+    <p>
+      I know I messed up, and I regret it deeply.<br>
+      You mean a lot to me, more than I show.<br>
+      I never wanted to hurt you...
+      <br><br>
+      Will you forgive me? ❤️
+    </p>
+
+    <button class="btn yes" onclick="accepted()">Yes 💖</button>
+    <button class="btn no" id="noBtn">No 😅</button>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const box = document.getElementById('box');
+
+    // Move NO button randomly
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
+      noBtn.style.left = x + 'px';
+      noBtn.style.top = y + 'px';
+    });
+
+    function accepted() {
+      document.body.innerHTML = `
+        <div style="display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;flex-direction:column;">
+          <h1 style="color:#ff4b5c;">Thank You ❤️</h1>
+          <p style="font-size:20px;">I promise to do better, always.</p>
+          <div style="font-size:60px;">💖💖💖</div>
+        </div>
+      `;
+    }
+
+    // Fix autoplay issue (user interaction required in some browsers)
+    document.body.addEventListener('click', () => {
+      document.getElementById('bgMusic').play();
+    });
+  </script>
+
+</body>
+</html>
